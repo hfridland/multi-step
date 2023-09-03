@@ -1,0 +1,562 @@
+@import "font.css";
+
+$font-heading: 32px UbuntuBold;
+$font-bodyL: 16px UbuntuMedium;
+$font-bodyM: 14px UbuntuMedium;
+$font-bodyS: 12px UbuntuRegular;
+
+.filter_checkbox_lines {
+  filter: invert(100%) sepia(2%) saturate(7500%) hue-rotate(349deg) brightness(111%) contrast(106%);
+}
+
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .main {
+    width: 940px;
+    height: 568px;
+    background-color: white;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    .sidebar {
+      background-image: url('./images/bg-sidebar-desktop.svg');
+      background-repeat: no-repeat no-repeat;
+      width: 290px;
+      .step-descrs {
+        margin-top: 40px;
+        margin-left: 32px;
+        .step-descr.selected {
+          .number {
+            background-color: #BEE2FD;
+            color: #022959;
+          }
+        }
+        .step-descr {
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 32px;
+          .number {
+            width: 33px;
+            height: 33px;
+            border-radius: 26px;
+            border: solid 1px #BEE2FD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font: $font-bodyM;
+            font-weight: bold;
+            color: white;
+          }
+          .descr-wrapper {
+            margin-left: 16px;
+            .step-number {
+              font: $font-bodyS;
+              color: #ABBCFF;
+            }
+            .step-title {
+              font: $font-bodyM;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    .work {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      .form {
+        flex-grow: 1;
+      }
+      .buttons {
+        height: 100px;
+      }
+    }
+  }
+}
+
+%form-start {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  width: 450px;
+  h1 {
+    font: $font-heading;
+    margin: 0;
+    padding: 0;
+  }
+  .descr {
+    font: $font-bodyL;
+    color: gray;
+    margin: 10px 0;
+  }
+
+}
+
+.personal-info {
+  @extend %form-start;
+  .field {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 72px;
+    margin-top: 24px;
+    .texts {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 8px;
+      color: #022959;
+      .error {
+        flex-grow: 1;
+        color: red;
+        text-align: right;
+      }
+    }
+    .input {
+      height: 48px;
+      font: $font-bodyM;
+      border: solid 1px gray;
+      outline: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}
+
+.sel-plan {
+  @extend %form-start;
+  .options {
+    margin-top: 30px;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: unset;
+    .option {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      width: 130px;
+      border: solid 1px gray;
+      border-radius: 8px;
+      padding: 16px;
+      margin-right: 18px;
+      cursor: pointer;
+      .imageContainer {
+        flex-grow: 1;
+      }
+      h3 {
+        // margin-top: 40px;
+        margin-bottom: 0;
+        font: $font-bodyL;
+        color: #022959;
+        text-transform: capitalize;
+      }
+      .price {
+        margin-top: 7px;
+        font: $font-bodyM;
+        color: gray;
+        margin-bottom: 0;
+      }
+      .sale {
+        font: $font-bodyS;
+        color: #022959;
+        margin-top: 6px;
+      }
+    }
+    .option.no-margin {
+      margin-right: 0;
+    }
+  }
+  .switchContainer {
+    margin-top: 32px;
+    height: 48px;
+    background-color: #d6d9e6;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .billing-switcher {
+      display: flex;
+      cursor: pointer;
+      font: $font-bodyM;
+      .selected {
+        color: #022959;
+        font-weight: bold;
+      }
+      .unselected {
+        color: gray;
+      }
+      .billing-switcher-rectangle {
+        width: 34px;
+        height: 14px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 0 20px;
+        padding: 3px;
+        border: solid 1px #022959;
+        background-color: #022959;
+        .billing-switcher-circle {
+          width: 14px;
+          height: 14px;
+          background-color: white;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
+}
+
+.add-ons {
+  @extend %form-start;
+  .add-ons-container {
+    width: 450px;
+    height: 275px;
+    margin-top: 40px;
+    .add-on {
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      height: 81px;
+      margin-bottom: 16px;
+      border: solid 1px lightgray;
+      border-radius: 8px;
+      .checks {
+        width: 68px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .check {
+          height: 20px;
+          width: 20px;
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      .descr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h3 {
+          margin: 0;
+          font: $font-bodyL;
+          color: #022959;
+        }
+        .description {
+          font: $font-bodyM;
+          color: grey;
+          margin-top: 7px;
+        }
+      }
+      .price-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 24px;
+        .price {
+          font: $font-bodyM;
+          color: #483EFF;
+        }
+    }
+    }
+  }
+  .add-on.selected {
+    border-color: blue;
+    background-color: #EFF5FF;
+    .checks {
+      .check {
+        background-color: #483EFF;
+      }
+    }
+  }
+  .add-on.unselected {
+    border-color: gray;
+    background-color: white;
+    .checks {
+      .check {
+          border: solid 1px lightgray;
+          img {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.finishing-up {
+  @extend %form-start;
+  .all-data-container {
+    width: 450px;
+    .data-container {
+      background-color: #D6D9E6;
+      border-radius: 8px;
+      margin-top: 40px;
+      padding: 16px 24px;
+      .plan-container {
+        margin-bottom: 24px;
+        .plan-option {
+          display: flex;
+          flex-direction: row;
+          .description {
+            .name {
+              font: $font-bodyL;
+              font-weight: bold;
+              color: #022959;
+              text-transform: capitalize;
+            }
+            .btn-change {
+              font: $font-bodyM;
+              color: #483EFF;
+              text-decoration: underline;
+              cursor: pointer;
+              margin-top: 7px;
+            }
+          }
+          .price-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            flex-grow: 1;
+            .price {
+              font: $font-bodyL;
+              font-weight: bold;
+              color: #022959;
+            }
+          }
+        }
+      }
+      .divider-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 24px;
+        .divider {
+          height: 0;
+          width: 100%;
+          border: solid 1px #979797;
+        }
+      }
+      .addons-container {
+        margin-top: 17px;
+        .addon-container {
+          display: flex;
+          flex-direction: row;
+          margin-bottom: 16px;
+          .name {
+            font: $font-bodyM;
+            color: #9699AA;
+          }
+          .price-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            .price {
+              font: $font-bodyM;
+              color: #022959;
+            }
+          }
+        }
+      }
+    }
+    .total-container {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: row;
+      padding: 0 24px;
+      .description {
+        font: $font-bodyM;
+        color: #9699AA;
+      }
+      .price-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        .price {
+          font: $font-bodyL;
+          font-weight: bold;
+          color: #483EFF;
+        }
+      }
+    }
+  }
+}
+
+.conclusion {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .content {
+    width: 450px;
+    text-align: center;
+    .title {
+      font: $font-heading;
+      font-weight: bold;
+      color: #022959;
+      margin-top: 32px;
+      margin-bottom: 14px;
+    }
+    p {
+      font: $font-bodyL;
+      color: #9699AA;
+    }
+  }
+}
+
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font: $font-bodyM;
+  margin: 0 40px;
+  // justify-content: space-between;
+  .btnGoBack {
+    color: gray;
+    cursor: pointer;
+  }
+  .btnNextStepWrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .btnNextStep {
+      text-align: right;
+      padding: 14px 25px;
+      background-color: #022959;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 375px) {
+
+  %form-start {
+    width: 343px;
+    margin: 0;
+  }
+
+  .App {
+    .main {
+      width: 100wh;
+      height: 100vh;
+      background-color: lightblue;
+      padding: 0;
+      justify-content: flex-start;
+      align-items: unset;
+      flex-direction: column;
+      .sidebar {
+        background-image: url('./images/bg-sidebar-mobile.svg');
+        width: 375px;
+        height: 172px;
+        display: flex;
+        justify-content: center;
+        .step-descrs {
+          width: 180px;
+          display: flex;
+          justify-content: space-between;
+          .step-descr {
+            .descr-wrapper {
+              display: none;
+            }
+          }
+        }
+      }
+      .work {
+        background-color: lightblue;
+        .form {
+          background-color: white;
+          width:  295px;
+          margin: 0 16px;
+          flex-grow: unset;
+          transform: translateY(-73px);
+          border-radius: 10px;
+          padding: 24px;
+        }
+        .spacer {
+          flex-grow: 1;
+        }
+        .buttons {
+          height: 72px;
+          background-color: white;
+          padding: 0 16px;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .personal-info {
+    width: 295px;
+    .field {
+      width: 295px;
+    }
+  }
+
+  .sel-plan {
+    width: 295px;
+    .options {
+      display: flex;
+      flex-direction: column;
+      width: 263px;
+      margin-top: 22px;
+      .option {
+        display: flex;
+        flex-direction: row;
+        width: 263px;
+        margin-bottom: 12px;
+        .imageContainer {
+          flex-grow: unset;
+        }
+        .desc-wrapper {
+          flex-grow: 1;
+          margin-left: 16px;
+          h3 {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .add-ons {
+    width: 295px;
+    .add-ons-container {
+      width: unset;
+      margin-top: 22px;
+    }
+  }
+
+  .finishing-up {
+    .all-data-container {
+      width: 295px;
+      .data-container {
+        margin-top: 22px;
+      }
+    }
+  }
+}
